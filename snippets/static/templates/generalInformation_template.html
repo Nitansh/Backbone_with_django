@@ -1,0 +1,118 @@
+<div class="row">
+	<div class="col-md-4">
+	<div class="jumbotron span3 myResponsive">
+	<div class="row">
+			<span><strong><p>Customer Information</p></strong></span>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped table-hover table-bordered table-condensed">
+			<tbody>
+				<tr>
+					<td>First Name</td>
+					<td>Sunil</td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td>kumar</td>
+				</tr>
+				<tr>
+					<td>Mission</td>
+					<td>01612569356</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+
+<div class="jumbotron span3 myResponsive">
+	<span><strong><p>Account Information</p></strong></span>
+
+
+	<div class="table-responsive">
+		<table class="table table-striped table-hover table-bordered table-condensed">
+			<tbody>
+				<tr>
+					<td>Identifier</td>
+					<td>2133fsdkndg23</td>
+				</tr>
+				<tr>
+					<td>Card Number</td>
+					<td>3875234652423964</td>
+				</tr>
+				<tr>
+					<td>Profile</td>
+					<td>Prepaid</td>
+				</tr>
+				<tr>
+					<td>Life cycle</td>
+					<td>Active</td>
+				</tr>
+				<tr>
+					<td>End Activity</td>
+					<td>20 Dec 2015</td>
+				</tr>
+				<tr>
+					<td>End InActivity</td>
+					<td>20 Dec 2016</td>
+				</tr>
+				<tr>
+					<td>Main Balance</td>
+					<td>12 Euros</td>
+				</tr>
+				<tr>
+					<td>Last Credit Update</td>
+					<td>20 Dec 2013</td>
+				</tr>
+				<tr>
+					<td>Last Free Date</td>
+					<td>31 january 2014</td>
+				</tr>
+				<tr>
+					<td>Last Reload Date</td>
+					<td>14 January 2014</td>
+				</tr>
+				<tr>
+					<td>Last Reload amount</td>
+					<td>20 Euros</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+
+<div class="col-md-8">
+	<div class="jumbotron span3 myResponsive">
+		<div class="row">
+			<span><strong><p>Profile Summary</p></strong></span>
+		</div>
+	<div class="table-responsive">
+		<table class="table table-striped table-hover table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Mission</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% _.each(person, function(user) { %>
+                    <tr>
+                    <td><%= (user.get('id')) %></td>
+	                <td><%= (user.get('First_Name')) %></td>
+	                <td><%= (user.get('Last_Name')) %></td>
+	                <td><%= (user.get('Mission')) %></td>
+			        </tr>
+        <% }); %>
+
+			</tbody>
+		</table>
+	</div>
+
+</div>
+</div>
+</div>
