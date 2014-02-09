@@ -1,10 +1,12 @@
 require.config({
 		    baseUrl: "/static/Javascript",
 		    paths: {
-		        "jquery"     : "libs/jquery",
-		        "backbone"   : "libs/backbone",
-		        "underscore" : "libs/underscore",
-		        "bootstrap"  : "libs/bootstrap",
+		    	 /* Load jquery from google cdn. On fail, load local file. */
+        		'jquery': ['//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min', 'libs/jquery'],
+        /* Load bootstrap from cdn. On fail, load local file. */
+        		'bootstrap': ['//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min', 'libs/bootstrap'],
+		        "backbone"   : ["//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min","libs/backbone"],
+		        "underscore" : ["//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min","libs/underscore"],
 		        "pubSub"	 : "libs/pubSub"	
  		    },
 		    shim: {
@@ -35,7 +37,8 @@ require(
 		){		
 		"use strict";
 
-			
+		loadCss('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css');	
+		loadCss('/static/css/responsive/responsive.css');
 		var baseApp = new BaseApp();	
 		Backbone.history.start();
 		

@@ -37,6 +37,8 @@ define([
 				}
 
 
+
 			});
+			loadCss("/static/css/carousel/carousel.css");
 			return HeaderView;
 });

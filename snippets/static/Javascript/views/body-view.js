@@ -50,6 +50,7 @@ define([
            			$('#Password').val(null);
            		},
 				render: function(){
+					$('#Body').removeClass('Loading');
 					$(this.el).html(this.template());
 				},
 
