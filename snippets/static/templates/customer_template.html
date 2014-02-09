@@ -23,49 +23,17 @@
 			</thead>
 
 			<tbody>
-				<tr>
-					<td><a href="#">f0425</a></td>
-					<td>12345</td>
-					<td>Postpaid</td>
-					<td><a> <img src="/static/img/colour_green_button.png" style="">
-							<!-- <div class="logo_img">  -->
-					</a> Active</td>
-					<td>25/07/2011</td>
-					<td>25/07/2012</td>
-					<td>1536</td>
-				</tr>
-				<tr>
-					<td><a href="#">f0425</a></td>
-					<td>12345</td>
-					<td>Postpaid</td>
-					<td><a> <img src="/static/img/orange-button.gif" style="">
-							<!-- <div class="logo_img">  -->
-					</a>Inactive</td>
-					<td>25/07/2011</td>
-					<td>25/07/2012</td>
-					<td>1536</td>
-				</tr>
-				<tr>
-					<td><a href="#">f0425</a></td>
-					<td>12345</td>
-					<td>Postpaid</td>
-					<td><a> <img src="/static/img/red_button.gif" style=""> <!-- <div class="logo_img">  -->
-					</a>Deactivated</td>
-					<td>25/07/2011</td>
-					<td>25/07/2012</td>
-					<td>1536</td>
-				</tr>
-				<tr>
-					<td><a href="#">f0425</a></td>
-					<td>12345</td>
-					<td>Postpaid</td>
-					<td><a> <img src="/static/img/colour_green_button.png" style="">
-							<!-- <div class="logo_img">  -->
-					</a> Active</td>
-					<td>25/07/2011</td>
-					<td>25/07/2012</td>
-					<td>1536</td>
-				</tr>
+				<% _.each(person, function(user) { %>
+                    <tr>
+                    <td><%= (user.get('MissionID')) %></td>
+	                <td><%= (user.get('Card_Number')) %></td>
+	                <td><%= (user.get('Profile')) %></td>
+	                <td><%= (user.get('Life_Cycle')) %></td>
+			        <td><%= (user.get('End_Activity')) %></td>
+			        <td><%= (user.get('End_InActivity')) %></td>
+			        <td><%= (user.get('Balance')) %></td>
+			        </tr>
+        			<% }); %>
 			</tbody>
 		</table>
 	</div>

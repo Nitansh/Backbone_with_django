@@ -93,21 +93,27 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Mission</th>
+					<th>Card Number</th>
+					<th>Profile</th>
+					<th>Life Cycle</th>
+					<th>End Activity</th>
+					<th>End InActivity</th>
+					<th>Balanace</th>
 				</tr>
 			</thead>
 
 			<tbody>
 				<% _.each(person, function(user) { %>
                     <tr>
-                    <td><%= (user.get('id')) %></td>
-	                <td><%= (user.get('First_Name')) %></td>
-	                <td><%= (user.get('Last_Name')) %></td>
-	                <td><%= (user.get('Mission')) %></td>
+                    <td><%= (user.get('MissionID')) %></td>
+	                <td><%= (user.get('Card_Number')) %></td>
+	                <td><%= (user.get('Profile')) %></td>
+	                <td><%= (user.get('Life_Cycle')) %></td>
+			        <td><%= (user.get('End_Activity')) %></td>
+			        <td><%= (user.get('End_InActivity')) %></td>
+			        <td><%= (user.get('Balance')) %></td>
 			        </tr>
-        <% }); %>
+        			<% }); %>
 
 			</tbody>
 		</table>

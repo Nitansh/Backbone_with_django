@@ -4,6 +4,12 @@ from rest_framework.urlpatterns import format_suffix_patterns
 urlpatterns = patterns('snippets.views',
     url(r'^profile_info/$', 'snippet_list'),
     url(r'^profile_info/(?P<pk>[0-9]+)$', 'snippet_detail'),
+    url(r'^personal_info/$', 'personal_info_list'),
+    url(r'^personal_info/(?P<pk>[0-9]+)$', 'personal_detail'),
+    url(r'^account_info/$', 'account_info_list'),
+    url(r'^account_info/(?P<pk>[0-9]+)$', 'account_detail'),
+    url(r'^full_api/$', 'full_list'),
+    url(r'^full_api/(?P<pk>[0-9]+)$', 'Full_detail'),
  	url(r'^my_code/$', 'render_index'),
 )
 

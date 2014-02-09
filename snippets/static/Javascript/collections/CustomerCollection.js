@@ -17,7 +17,7 @@ define([
 
 		model : Customer,
 
-		url : "/snippets/?format=json"
+		url : "/full_api/?format=json"
 
 
 		});

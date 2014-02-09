@@ -9,9 +9,9 @@ define([
 	
 		CustomerModel = Backbone.Model.extend({
 
-			urlRoot : 'http://127.0.0.1:8001/snippets',
+			urlRoot : '/full_api/',
 
-			url : this.urlRoot + this.id +  '?format=json' 
+			url : this.urlRoot + this.id +  '/?format=json' 
 
 
 		});
