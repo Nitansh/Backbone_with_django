@@ -28,10 +28,12 @@ require.config({
 
 require(
 	[
+	'backbone',
 	'apps/BaseApp',
 	'bootstrap'
 	],
 	function(
+		Backbone,
 		BaseApp,
 		Bootstrap
 		){		
