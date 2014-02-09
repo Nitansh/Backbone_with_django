@@ -22,3 +22,17 @@ class Snippet(models.Model):
 
 	class Meta:
 		ordering = ('Created',)
+
+class CompanyName(models.Model) : 
+	Created = models.DateTimeField(auto_now_add=True)
+	Company_Name = models.TextField(max_length=50)
+
+class Tab_Details(models.Model) : 
+	Company = models.ForeignKey(CompanyName, related_name='Tab_Details')
+	Tab_Name = models.TextField(max_length=50)
+	Tab_Link  = models.TextField(max_length=50)
+
+class DropDown_Details(models.Model):
+	Company = models.ForeignKey(CompanyName, related_name='DropDown_Details')
+	Tab_Name = models.TextField(max_length=50)
+	Tab_Link  = models.TextField(max_length=50)
