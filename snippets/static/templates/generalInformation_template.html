@@ -1,5 +1,6 @@
 <div class="row">
 	<div class="col-md-4">
+	<%_.each(person, function(user){%>
 	<div class="jumbotron span3 myResponsive">
 	<div class="row">
 			<span><strong><p>Customer Information</p></strong></span>
@@ -9,23 +10,23 @@
 			<tbody>
 				<tr>
 					<td>First Name</td>
-					<td>Sunil</td>
+					<td><%=(user.get('First_Name'))%></td>
 				</tr>
 				<tr>
 					<td>Last Name</td>
-					<td>kumar</td>
+					<td><%=(user.get('Last_Name'))%></td>
 				</tr>
 				<tr>
 					<td>Mission</td>
-					<td>01612569356</td>
+					<td><%=(user.get('MissionID'))%></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 
 </div>
-
-
+<%});%>
+<%_.each(person, function(user){%>
 <div class="jumbotron span3 myResponsive">
 	<span><strong><p>Account Information</p></strong></span>
 
@@ -35,54 +36,54 @@
 			<tbody>
 				<tr>
 					<td>Identifier</td>
-					<td>2133fsdkndg23</td>
+					<td><%=(user.get('MissionID'))%></td>
 				</tr>
 				<tr>
 					<td>Card Number</td>
-					<td>3875234652423964</td>
+					<td><%=(user.get('Card_Number'))%></td>
 				</tr>
 				<tr>
 					<td>Profile</td>
-					<td>Prepaid</td>
+					<td><%=(user.get('Profile'))%></td>
 				</tr>
 				<tr>
 					<td>Life cycle</td>
-					<td>Active</td>
+					<td><%=(user.get('Life_Cycle'))%></td>
 				</tr>
 				<tr>
 					<td>End Activity</td>
-					<td>20 Dec 2015</td>
+					<td><%=(user.get('End_Activity'))%></td>
 				</tr>
 				<tr>
 					<td>End InActivity</td>
-					<td>20 Dec 2016</td>
+					<td><%=(user.get('End_InActivity'))%></td>
 				</tr>
 				<tr>
 					<td>Main Balance</td>
-					<td>12 Euros</td>
+					<td><%=(user.get('Balance'))%> Euros</td>
 				</tr>
 				<tr>
 					<td>Last Credit Update</td>
-					<td>20 Dec 2013</td>
+					<td><%=(user.get('Last_Credit_update'))%></td>
 				</tr>
 				<tr>
 					<td>Last Free Date</td>
-					<td>31 january 2014</td>
+					<td><%=(user.get('Last_Reload_Date'))%></td>
 				</tr>
 				<tr>
 					<td>Last Reload Date</td>
-					<td>14 January 2014</td>
+					<td><%=(user.get('Last_Reload_Date'))%></td>
 				</tr>
 				<tr>
 					<td>Last Reload amount</td>
-					<td>20 Euros</td>
+					<td><%=(user.get('Last_Reload_amount'))%> Euros</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
 </div>
-
+<%});%>
 <div class="col-md-8">
 	<div class="jumbotron span3 myResponsive">
 		<div class="row">

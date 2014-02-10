@@ -30,7 +30,7 @@ class FullInfoSerializer(serializers.ModelSerializer):
 class TabSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Tab_Details
-		fields = ('Tab_Name','Tab_Link',)
+		fields = ('Tab_Name','Tab_Link','Class',)
 
 class DropDownSerializer(serializers.ModelSerializer):
 	class Meta:

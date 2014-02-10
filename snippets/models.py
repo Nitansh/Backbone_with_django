@@ -31,6 +31,7 @@ class Tab_Details(models.Model) :
 	Company = models.ForeignKey(CompanyName, related_name='Tab_Details')
 	Tab_Name = models.TextField(max_length=50)
 	Tab_Link  = models.TextField(max_length=50)
+	Class     = models.TextField(max_length=10)
 
 class DropDown_Details(models.Model):
 	Company = models.ForeignKey(CompanyName, related_name='DropDown_Details')
