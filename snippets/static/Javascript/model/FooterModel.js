@@ -7,13 +7,13 @@ define([
 		_
 		){
 	
-		CustomerModel = Backbone.Model.extend({
- 
-
+		FooterModel = Backbone.Model.extend({
+ 		
+ 		url : '/Footer_api/?format=json'
 
 		});
 
-		return CustomerModel;
+		return FooterModel;
 
 
 });

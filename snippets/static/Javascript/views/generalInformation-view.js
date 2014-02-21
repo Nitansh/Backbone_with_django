@@ -19,23 +19,24 @@ define([
 				Collection : new CustomerCollection,
 
 				initialize : function(){
-					_.bindAll(this,"remove","render","success");
+					_.bindAll(this,"remove", "success", "render");
 					PubSub.on('remove:generalInformationView',this.remove);
-					var that = this;
-					this.Collection.fetch({success : that.success});	
+					var _this = this;
+					this.Collection.fetch({success: _this.success});	
 				},
 				template : _.template(myTemplate),
 			
 				render: function(){
-					var that =  this;
-					var data = {person : that.Collection.models}
-					$(this.el).html(this.template(data));
+					var _data = {data : this.Collection.models} ; 
+					$(this.el).html(this.template(_data));
 				},
 
-				success : function(){
-					this.render();
+				success : function(collection, response , options){
+						this.render();
+						console.log("data fetched successfully" + collection);
 				},
 
+				
 				remove: function() {
    					this.$el.empty();
     				this.undelegateEvents();

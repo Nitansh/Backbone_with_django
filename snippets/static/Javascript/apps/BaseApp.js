@@ -11,8 +11,7 @@ define(function(
 				var self  =  this;
 				this.baseRouter =  new BaseRouter();
 				PubSub.listenTo(self.baseRouter, 'route:init', self.StateLogin);
-				PubSub.listenTo(self.baseRouter, 'route:userLoggedIn', self.UserAuthorized);	
-		
+				PubSub.listenTo(self.baseRouter, 'route:userLoggedIn', self.UserAuthorized);					
 			};
 
 			BaseApp.prototype.UserAuthorized= function(){

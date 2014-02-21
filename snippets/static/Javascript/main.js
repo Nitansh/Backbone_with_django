@@ -1,13 +1,12 @@
 require.config({
 		    baseUrl: "/static/Javascript",
 		    paths: {
-		    	 /* Load jquery from google cdn. On fail, load local file. */
-        		'jquery': ['//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min', 'libs/jquery'],
-        /* Load bootstrap from cdn. On fail, load local file. */
-        		'bootstrap': ['//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min', 'libs/bootstrap'],
-		        "backbone"   : ["//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min","libs/backbone"],
-		        "underscore" : ["//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min","libs/underscore"],
-		        "pubSub"	 : "libs/pubSub"	
+		        "jquery"     : "libs/jquery",
+		        "backbone"   : "libs/backbone",
+		        "underscore" : "libs/underscore",
+		        "bootstrap"  : "libs/bootstrap",
+		        "pubSub"	 : "libs/pubSub",
+		        "polyglot"   : "libs/polyglot"	
  		    },
 		    shim: {
 		        'backbone': {
@@ -21,6 +20,10 @@ require.config({
 		     	{
 		     		deps: ['jquery'],
 		     		exports : 'Bootstrap'
+		     	},
+		     	'polyglot':
+		     	{
+		     		exports: 'Polyglot'
 		     	}
 		    }
 		});
@@ -28,21 +31,36 @@ require.config({
 
 require(
 	[
-	'backbone',
 	'apps/BaseApp',
-	'bootstrap'
+	'bootstrap',
+	'polyglot',
+	'jquery'
 	],
 	function(
-		Backbone,
 		BaseApp,
-		Bootstrap
+		Bootstrap,
+		Polyglot,
+		$
 		){		
 		"use strict";
 
-		loadCss('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css');	
-		loadCss('/static/css/responsive/responsive.css');
-		var baseApp = new BaseApp();	
-		Backbone.history.start();
-		
-		return baseApp;
-});
+		loadCss('/static/css/bootstrap.min.css', 'bootstrap');	
+		loadCss('/static/css/responsive/responsive.css', 'responsive');
+
+
+		var _locale="";
+		if(navigator.language==="en-US"){
+			_locale = 'en';
+		}
+		else if(navigator.language==="de"){
+			_locale= 'de';
+		}
+  			
+  		$.getJSON('/static/locales/' + _locale + '.json', function(data) {
+  			window.polyglot = new Polyglot({phrases: data});
+  		}).done(function(){
+  			var baseApp = new BaseApp();	
+			Backbone.history.start();
+			return baseApp;
+		});	
+  	});

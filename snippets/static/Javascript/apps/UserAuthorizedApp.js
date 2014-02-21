@@ -10,17 +10,25 @@ define(function(
 			var self  =  this;
 			this.userAuthorizedRouter =  new UserAuthorizedRouter();
 			PubSub.listenTo(self.userAuthorizedRouter, 'route:generalinfo', self.stateGeneralInfo);
+			PubSub.listenTo(self.userAuthorizedRouter, 'route:dashboard', self.stateDashBoard);
 		}
 
 		userAuthorizedApp.prototype.stateGeneralInfo =  function(){
-			
 			require(['views/generalInformation-view','libs/pubSub'], function(GeneralInformationView, PubSub){
 					PubSub.trigger('remove:bodyView','old body view deleted');  
 					PubSub.trigger('remove:customerView','old customer information view deleted'); 
-					var generalInformationView = new GeneralInformationView();
-
-					
+					var generalInformationView = new GeneralInformationView();					
 			});            
+
+		}
+
+		userAuthorizedApp.prototype.stateDashBoard =  function(){
+			require(['views/dashboard-view','libs/pubSub'], function(DashboardView, PubSub){	
+				PubSub.trigger('remove:bodyView','old body view deleted');  
+				PubSub.trigger('remove:customerView','old customer information view deleted');
+				PubSub.trigger('remove:generalInformationView','old customer information view deleted');			 
+            	var dashboardView = new DashboardView();
+			})
 		}
 
 		return userAuthorizedApp;

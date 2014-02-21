@@ -22,9 +22,20 @@ define([
 				model    : new HeaderModel, 
 
 				events : {
-					'click .tabs' :  'setActiveClass'
+					'click .tabs' :  'setActiveClass',
+					'click li#RTL':'RTL_conversion',
+					'click li#LTR' : 'LTR_conversion'
 				},
 				
+			RTL_conversion:function() {
+					var bootstrap_link =$("#bootstrap"); 
+					bootstrap_link.attr({href : "/static/css/bootstrap.rtl.css"});
+				},
+				LTR_conversion:function() {
+					var bootstrap_link =$("#bootstrap");
+					bootstrap_link.attr({href : "/static/css/bootstrap.min.css"});
+				},
+
 				initialize : function(){
 					_.bindAll(this,"remove","success","error","render");
 					var _this = this;
@@ -37,8 +48,9 @@ define([
 					console.log('model fetched succcesfully');
 				},
 
-				error : function(error, response, options){
+				error : function(model, response, options){
 					console.log('error occured in fetching the header model' + response.responseText);
+					alert(error);
 				},
 
 				render: function(){
@@ -52,7 +64,7 @@ define([
 				},
 
 				remove: function() {
-   					this.$el.empty();
+					this.$el.empty();
     				this.undelegateEvents();
     				this.stopListening();
     				PubSub.off('remove:bodyView');

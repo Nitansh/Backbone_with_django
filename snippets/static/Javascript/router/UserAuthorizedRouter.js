@@ -14,7 +14,8 @@ define(
 	var UserAuthorizedRouter = Backbone.Router.extend({
 	
 		routes : {
-			'generalInformation'  : "generalinfo"
+			'generalInformation'  : "generalinfo",
+			'dashBoard'           : "dashboard"
 		},
 		
 
