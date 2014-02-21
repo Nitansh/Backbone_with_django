@@ -2,7 +2,7 @@ define([
 		'backbone',
 		 'jquery',
 		 'underscore',
-		 'text!/statics/templates/body_template.html',
+		 'text!/static/templates/body_template.html',
 		 'libs/pubSub',
 		 'model/BodyModel'
 
