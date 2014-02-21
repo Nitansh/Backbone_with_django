@@ -45,6 +45,11 @@
  "RAT_IDX_PROF_1" : "RAT_IDX_PROF_1_en",
  "RAT_IDX_PROF_2" : "RAT_IDX_PROF_2_en",
  "RAT_IDX_PROF_3" : "RAT_IDX_PROF_3_en",
- "RAT_IDX_PROF_4" : "RAT_IDX_PROF_4_en"
+ "RAT_IDX_PROF_4" : "RAT_IDX_PROF_4_en",
+ "Self Care Portal Login" : "Self Care Portal Login_en",
+ "Account ID" : "Account ID_en",
+ "Password" : "Password_en",
+ "Remember me" : "Remember me_en",
+ "Log in" : "Log in_en"
 
 }
