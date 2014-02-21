@@ -22,7 +22,6 @@ define([
 					_.bindAll(this,"remove", "success", "render");
 					PubSub.on('remove:generalInformationView',this.remove);
 					var _this = this;
-					$('#body').addClass('Loading');
 					this.Collection.fetch({success: _this.success});	
 				},
 				template : _.template(myTemplate),

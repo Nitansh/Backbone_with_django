@@ -23,7 +23,6 @@ define([
 				template : _.template(myTemplate),
 			
 				initialize : function(){
-					$('#body').addClass('Loading');
 					_.bindAll(this,"remove","render","success","failure");
 					var _this = this;
 

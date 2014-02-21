@@ -21,7 +21,6 @@ define([
 				template : _.template(myTemplate),
 			
 				initialize : function(){
-					$('#body').addClass('Loading');
 					_.bindAll(this,"remove","render","success","failure");
 					var _this = this;
 					this.model.fetch({success : _this.success, error : _this.failure});
