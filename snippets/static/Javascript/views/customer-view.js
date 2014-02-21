@@ -21,6 +21,7 @@ define([
 				template : _.template(myTemplate),
 			
 				initialize : function(){
+					$('#body').addclass('Loading');
 					_.bindAll(this,"remove","render","success","failure");
 					var _this = this;
 					this.model.fetch({success : _this.success, error : _this.failure});
@@ -39,6 +40,7 @@ define([
 				render: function(){
 					var _this = this ;
 					var _data = {data : _this.model.toJSON() };
+					$('#body').removeclass('Loading');
 					$(this.el).html(this.template(_data));
 				},
 
