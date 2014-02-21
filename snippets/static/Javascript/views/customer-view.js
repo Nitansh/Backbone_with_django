@@ -39,7 +39,6 @@ define([
 				render: function(){
 					var _this = this ;
 					var _data = {data : _this.model.toJSON() };
-					$('#body').removeClass('Loading');
 					$(this.el).html(this.template(_data));
 				},
 

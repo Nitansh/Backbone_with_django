@@ -27,7 +27,6 @@ define([
 				template : _.template(myTemplate),
 			
 				render: function(){
-					$('#body').removeClass('Loading');
 					var _data = {data : this.Collection.models} ; 
 					$(this.el).html(this.template(_data));
 				},

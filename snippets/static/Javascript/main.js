@@ -57,6 +57,7 @@ require(
 		}
   			
   		$('#body').removeClass('Loading');
+  		
   		$.getJSON('/static/locales/' + _locale + '.json', function(data) {
   			window.polyglot = new Polyglot({phrases: data});
   		}).done(function(){

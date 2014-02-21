@@ -40,7 +40,6 @@ define([
 		
 				},	
 				render: function(){
-					$('#body').removeClass('Loading');
 					var _this = this ;
 					var _data = {data : _this.model.toJSON() };
 					$(this.el).html(this.template(_data));
