@@ -23,7 +23,7 @@ define(function(
 		}
 
 		userAuthorizedApp.prototype.stateDashBoard =  function(){
-			require(['views/dashboard-view','libs/pubSub'], function(DashboardView, PubSub){	
+			require(['views/Dashboard-view','libs/pubSub'], function(DashboardView, PubSub){	
 				PubSub.trigger('remove:bodyView','old body view deleted');  
 				PubSub.trigger('remove:customerView','old customer information view deleted');
 				PubSub.trigger('remove:generalInformationView','old customer information view deleted');			 
