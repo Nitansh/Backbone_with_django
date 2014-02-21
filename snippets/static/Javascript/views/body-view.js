@@ -25,7 +25,7 @@ define([
 				initialize : function(){
 					_.bindAll(this,"navigateToLogin","remove","success","error");
 					var _this = this;
-					$('#body').addclass('Loading');
+					$('#body').addClass('Loading');
 					this.model.fetch({success : _this.success , error : _this.error});
 					PubSub.on('remove:bodyView',this.remove);
 				},
@@ -62,7 +62,7 @@ define([
     			},
 
 				render: function(){
-					$('#body').removeclass('Loading');
+					$('#body').removeClass('Loading');
 					var _data = {data : this.model.toJSON()};
 					$(this.el).html(this.template(_data));
 				},

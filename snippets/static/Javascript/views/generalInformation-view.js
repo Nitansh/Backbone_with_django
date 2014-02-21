@@ -22,13 +22,13 @@ define([
 					_.bindAll(this,"remove", "success", "render");
 					PubSub.on('remove:generalInformationView',this.remove);
 					var _this = this;
-					$('#body').addclass('Loading');
+					$('#body').addClass('Loading');
 					this.Collection.fetch({success: _this.success});	
 				},
 				template : _.template(myTemplate),
 			
 				render: function(){
-					$('#body').removeclass('Loading');
+					$('#body').removeClass('Loading');
 					var _data = {data : this.Collection.models} ; 
 					$(this.el).html(this.template(_data));
 				},

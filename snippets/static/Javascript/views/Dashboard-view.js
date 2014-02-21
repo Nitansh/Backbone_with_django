@@ -23,7 +23,7 @@ define([
 				template : _.template(myTemplate),
 			
 				initialize : function(){
-					$('#body').addclass('Loading');
+					$('#body').addClass('Loading');
 					_.bindAll(this,"remove","render","success","failure");
 					var _this = this;
 
@@ -41,7 +41,7 @@ define([
 		
 				},	
 				render: function(){
-					$('#body').removeclass('Loading');
+					$('#body').removeClass('Loading');
 					var _this = this ;
 					var _data = {data : _this.model.toJSON() };
 					$(this.el).html(this.template(_data));
