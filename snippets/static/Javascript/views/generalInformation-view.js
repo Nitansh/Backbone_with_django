@@ -19,6 +19,7 @@ define([
 				Collection : new CustomerCollection,
 
 				initialize : function(){
+					$('#Body').addClass('Loading'); 
 					_.bindAll(this,"remove", "success", "render");
 					PubSub.on('remove:generalInformationView',this.remove);
 					var _this = this;
@@ -27,7 +28,8 @@ define([
 				template : _.template(myTemplate),
 			
 				render: function(){
-					var _data = {data : this.Collection.models} ; 
+					var _data = {data : this.Collection.models} ;
+					$('#Body').removeClass('Loading'); 
 					$(this.el).html(this.template(_data));
 				},
 

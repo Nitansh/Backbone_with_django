@@ -23,6 +23,7 @@ define([
 				model : new BodyModel,
 				
 				initialize : function(){
+					$('#Body').addClass('Loading'); 
 					_.bindAll(this,"navigateToLogin","remove","success","error");
 					var _this = this;
 					this.model.fetch({success : _this.success , error : _this.error});
@@ -62,6 +63,7 @@ define([
 
 				render: function(){
 					var _data = {data : this.model.toJSON()};
+					$('#Body').removeClass('Loading');
 					$(this.el).html(this.template(_data));
 				},
 
