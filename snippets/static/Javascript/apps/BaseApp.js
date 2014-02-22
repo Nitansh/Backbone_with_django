@@ -22,7 +22,10 @@ define(function(
 					PubSub.trigger('remove:generalInformationView','old general information view deleted');
 					
 					var customerView = new CustomerView();
-					var headerUserAuthorized =  new HeaderUserAuthorized();
+					
+					if (this.headerUserAuthorized === undefined)
+						this.headerUserAuthorized =  new HeaderUserAuthorized();
+               		
                		var userAuthorizedApp = new UserAuthorizedApp();
 				});
 			};
