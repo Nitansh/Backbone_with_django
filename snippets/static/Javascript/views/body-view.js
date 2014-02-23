@@ -4,7 +4,8 @@ define([
 		 'underscore',
 		 'text!/static/templates/body_template.html',
 		 'libs/pubSub',
-		 'model/BodyModel'
+		 'model/BodyModel',
+		 'libs/flip'
 
 		 ], function(
 		 	Backbone,
@@ -12,7 +13,8 @@ define([
 		 	_,
 		 	myTemplate,
 		 	PubSub,
-		 	BodyModel
+		 	BodyModel,
+		 	Flip
 		 	){
 
 			var BodyView = Backbone.View.extend({
@@ -24,7 +26,7 @@ define([
 				
 				initialize : function(){
 					$('#Body').addClass('Loading'); 
-					_.bindAll(this,"navigateToLogin","remove","success","error");
+					_.bindAll(this,"navigateToLogin","remove","success","error","flip");
 					var _this = this;
 					this.model.fetch({success : _this.success , error : _this.error});
 					PubSub.on('remove:bodyView',this.remove);
@@ -50,7 +52,17 @@ define([
                 		$("#alert1").append("<div class='alert alert-warning'>Please enter Password<span class='close' data-dismiss='alert'>&times;</span></div>");
                 	}else if(this.navigateToLogin()){
                 		//route will be changed here
-                		PubSub.trigger("userAuthorized","UserAuthorized");
+                		$("#flipBox").flip({
+							direction:'lr',
+
+							speed : 500, 
+
+							onAnimation : function(){
+								PubSub.trigger("userAuthorized","UserAuthorized");
+							}
+						});
+
+                		
                 	}else {
                 		alert('user name or password is not valid')
                 	}
@@ -58,6 +70,8 @@ define([
 				
 				//user login validation called
     			navigateToLogin: function(){
+
+    				
         			return true; 
     			},
 
@@ -73,6 +87,12 @@ define([
     				this.stopListening();
     				PubSub.off('remove:bodyView');
     				return this;
+				},
+
+				flip : function(){
+					var _this = this;
+
+					
 				}
 
 			});

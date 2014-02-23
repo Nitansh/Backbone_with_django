@@ -6,7 +6,8 @@ require.config({
 		        "underscore" : "libs/underscore",
 		        "bootstrap"  : "libs/bootstrap",
 		        "pubSub"	 : "libs/pubSub",
-		        "polyglot"   : "libs/polyglot"	
+		        "polyglot"   : "libs/polyglot",
+		        "flip"	     : "libs/flip"
  		    },
 		    shim: {
 		        'backbone': {
@@ -24,6 +25,10 @@ require.config({
 		     	'polyglot':
 		     	{
 		     		exports: 'Polyglot'
+		     	},
+		     	'flip' : {
+		     		deps : ['jquery'],
+		     		exports : 'Flip'
 		     	}
 		    }
 		});
