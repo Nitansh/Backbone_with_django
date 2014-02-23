@@ -15,18 +15,19 @@ define(function(
 			};
 
 			BaseApp.prototype.UserAuthorized= function(){
-				
+				var _this = this;
+
+
 				require(['views/customer-view','libs/pubSub','views/header-view-userAuthorized','apps/UserAuthorizedApp'], function(CustomerView, PubSub, HeaderUserAuthorized, UserAuthorizedApp){
 					PubSub.trigger('remove:bodyView','old body view deleted'); 
-					PubSub.trigger('remove:headerView','old header view deleted'); 
 					PubSub.trigger('remove:generalInformationView','old general information view deleted');
-					
 					var customerView = new CustomerView();
-					
-					if (this.headerUserAuthorized === undefined)
-						this.headerUserAuthorized =  new HeaderUserAuthorized();
+					if (_this.headerUserAuthorized === undefined){
+						PubSub.trigger('remove:headerView','old header view deleted'); 
+						_this.headerUserAuthorized =  new HeaderUserAuthorized();
+						var userAuthorizedApp = new UserAuthorizedApp();
+               		}
                		
-               		var userAuthorizedApp = new UserAuthorizedApp();
 				});
 			};
 
@@ -40,7 +41,7 @@ define(function(
 					var footerView   = new FooterView();
 					var bodyView     = new BodyView();
 				});
-
+				this.headerUserAuthorized = undefined;
 
 			};
 
