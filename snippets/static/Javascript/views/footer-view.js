@@ -26,6 +26,7 @@ define([
 					_.bindAll(this, "success","error","render");
 					var _this = this;
 					this.model.fetch({success : _this.success , error : _this.error});
+					PubSub.on('render:FooterRender',_this.render);
 				},
 				
 				success : function(collection, response, options){

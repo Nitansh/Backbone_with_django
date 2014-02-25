@@ -11,7 +11,8 @@ define(function(
 				var self  =  this;
 				this.baseRouter =  new BaseRouter();
 				PubSub.listenTo(self.baseRouter, 'route:init', self.StateLogin);
-				PubSub.listenTo(self.baseRouter, 'route:userLoggedIn', self.UserAuthorized);					
+				PubSub.listenTo(self.baseRouter, 'route:userLoggedIn', self.UserAuthorized);
+				PubSub.on('render:ActiveView',self.renderActiveView);					
 			};
 
 			BaseApp.prototype.UserAuthorized= function(){
@@ -22,6 +23,7 @@ define(function(
 					PubSub.trigger('remove:bodyView','old body view deleted'); 
 					PubSub.trigger('remove:generalInformationView','old general information view deleted');
 					var customerView = new CustomerView();
+					window.activeView = customerView;
 					if (_this.headerUserAuthorized === undefined){
 						PubSub.trigger('remove:headerView','old header view deleted'); 
 						_this.headerUserAuthorized =  new HeaderUserAuthorized();
@@ -40,9 +42,14 @@ define(function(
 					var headerView   = new HeaderView();
 					var footerView   = new FooterView();
 					var bodyView     = new BodyView();
+					window.activeView = bodyView;
 				});
 				this.headerUserAuthorized = undefined;
 
+			};
+
+			BaseApp.prototype.renderActiveView = function(){
+				window.activeView.render();
 			};
 
 			return BaseApp;

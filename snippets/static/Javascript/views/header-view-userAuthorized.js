@@ -4,14 +4,16 @@ define([
 		 'underscore',
 		 'text!/static/templates/header_template_userAuthorized.html',
 		 'libs/pubSub',
-		 'model/HeaderModel'
+		 'model/HeaderModel',
+		 'polyglot'
 		 ], function(
 		 	Backbone,
 		 	$,
 		 	_,
 		 	myTemplate,
 		 	PubSub,
-		 	HeaderModel
+		 	HeaderModel,
+		 	Polyglot
 		 	){
 
 			var HeaderView = Backbone.View.extend({
@@ -24,8 +26,47 @@ define([
 				events : {
 					'click .tabs' :  'setActiveClass',
 					'click li#RTL':'RTL_conversion',
-					'click li#LTR' : 'LTR_conversion'
+					'click li#LTR' : 'LTR_conversion',
+					'click li#English':'EnglishLocale',
+					'click li#French' : 'FrenchLocale'
 				},
+
+
+
+			EnglishLocale: function () {
+			   var _this = this;
+			   $.getJSON('/static/locales/' + 'en' + '.json', function (data) {
+			      window.polyglot = new Polyglot({
+			         phrases: data
+			      });
+			   }).done(function () {
+			      _this.render();
+			      PubSub.trigger('render:ActiveView', 'Active View is reRendered');
+			      PubSub.trigger('render:FooterRender', 'Footer Viewe is reRendered');
+			   });
+
+			},
+
+			FrenchLocale: function () {
+			   var _this = this;
+			   $.getJSON('/static/locales/' + 'de' + '.json', function (data) {
+			      window.polyglot = new Polyglot({
+			         phrases: data
+			      });
+			   }).done(function () {
+			      _this.render();
+			      PubSub.trigger('render:ActiveView', 'Active View is reRendered');
+			      PubSub.trigger('render:FooterRender', 'Footer Viewe is reRendered');
+			   });
+
+			},
+
+
+
+
+
+
+
 				
 			RTL_conversion:function() {
 					var bootstrap_link =$("#bootstrap"); 
