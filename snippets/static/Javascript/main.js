@@ -53,7 +53,7 @@ require(
 		loadCss('/static/css/responsive/responsive.css', 'responsive');
 
 
-		var _locale="";
+		var _locale="en";
 		if(navigator.language==="en-US"){
 			_locale = 'en';
 		}
