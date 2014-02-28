@@ -1,26 +1,23 @@
 define(
-	[
-		'backbone',
-		'libs/pubSub'
-	],
-	function
-	(
-		Backbone,
-		PubSub
-	){
+    [
+        'backbone'
+    ],
+    function (
+        Backbone
+    ) {
 
-	"use strict"; 
+        "use strict";
 
-	var UserAuthorizedRouter = Backbone.Router.extend({
-	
-		routes : {
-			'generalInformation'  : "generalinfo",
-			'dashBoard'           : "dashboard"
-		},
-		
+        var UserAuthorizedRouter = Backbone.Router.extend({
 
-	});
+            routes: {
+                'generalInformation': "generalinfo",
+                'dashBoard': "dashboard"
+            }
 
 
-	return UserAuthorizedRouter;
-});
+        });
+
+
+        return UserAuthorizedRouter;
+    });

@@ -1,53 +1,56 @@
 define([
-		'backbone',
-		 'jquery',
-		 'underscore',
-		 'text!/static/templates/generalInformation_template.html',
-		 'collections/CustomerCollection',
-		 'libs/pubSub'
-		 ], function(
-		 	Backbone,
-		 	$,
-		 	_,
-		 	myTemplate,
-		 	CustomerCollection,
-		 	PubSub
-		 	){
-			var GeneralInformationView = Backbone.View.extend({
-				el : '.Body',
+    'backbone',
+    'jquery',
+    'underscore',
+    'text!/static/templates/generalInformation_template.html',
+    'collections/CustomerCollection',
+    'libs/pubSub'
+], function (
+    Backbone,
+    $,
+    _,
+    myTemplate,
+    CustomerCollection,
+    PubSub
+) {
+    var GeneralInformationView = Backbone.View.extend({
+        el: '.Body',
 
-				Collection : new CustomerCollection,
+        Collection: new CustomerCollection(),
 
-				initialize : function(){
-					$('#Body').addClass('Loading'); 
-					_.bindAll(this,"remove", "success", "render");
-					PubSub.on('remove:generalInformationView',this.remove);
-					var _this = this;
-					this.Collection.fetch({success: _this.success});	
-				},
-				template : _.template(myTemplate),
-			
-				render: function(){
-					var _data = {data : this.Collection.models} ;
-					$('#Body').removeClass('Loading'); 
-					$(this.el).html(this.template(_data));
-				},
+        initialize: function () {
+            $('#Body').addClass('Loading');
+            _.bindAll(this, "remove", "success", "render");
+            PubSub.on('remove:generalInformationView', this.remove);
+            var _this = this;
+            this.Collection.fetch({
+                success: _this.success
+            });
+        },
+        template: _.template(myTemplate),
 
-				success : function(collection, response , options){
-						this.render();
-						console.log("data fetched successfully" + collection);
-				},
+        render: function () {
+            var _data = {
+                data: this.Collection.models
+            };
+            $('#Body').removeClass('Loading');
+            $(this.el).html(this.template(_data));
+        },
 
-				
-				remove: function() {
-   					this.$el.empty();
-    				this.undelegateEvents();
-    				this.stopListening();
-    				PubSub.off('remove:bodyView');
-    				return this;
-				}
+        success: function () {
+            this.render();
+        },
 
 
-			});
-			return GeneralInformationView;
+        remove: function () {
+            this.$el.empty();
+            this.undelegateEvents();
+            this.stopListening();
+            PubSub.off('remove:bodyView');
+            return this;
+        }
+
+
+    });
+    return GeneralInformationView;
 });

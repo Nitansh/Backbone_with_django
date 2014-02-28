@@ -1,19 +1,16 @@
 define([
-		'backbone',
-		'jquery',
-		'underscore'],function(
-		Backbone,
-		$,
-		_
-		){
-	
-		RatingPlanModel = Backbone.Model.extend({
- 		
- 		url : '/static/data/Rating_Plan.json'
+    'backbone'
+], function (
+    Backbone
+) {
 
-		});
+    var RatingPlanModel = Backbone.Model.extend({
 
-		return RatingPlanModel;
+        url: '/static/data/Rating_Plan.json'
+
+    });
+
+    return RatingPlanModel;
 
 
 });

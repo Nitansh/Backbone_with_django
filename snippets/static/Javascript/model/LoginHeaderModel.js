@@ -1,19 +1,16 @@
 define([
-		'backbone',
-		'jquery',
-		'underscore'],function(
-		Backbone,
-		$,
-		_
-		){
-	
-		LoginHeaderModel = Backbone.Model.extend({
- 		
- 		url : '/header_api/?format=json'
+    'backbone'
+], function (
+    Backbone
+) {
 
-		});
+    var LoginHeaderModel = Backbone.Model.extend({
 
-		return LoginHeaderModel;
+        url: '/header_api/?format=json'
+
+    });
+
+    return LoginHeaderModel;
 
 
 });

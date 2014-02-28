@@ -1,19 +1,16 @@
 define([
-		'backbone',
-		'jquery',
-		'underscore'],function(
-		Backbone,
-		$,
-		_
-		){
-	
-		DashboardModel = Backbone.Model.extend({
- 		
- 		url : '/static/data/Dashboard.json'
+    'backbone'
+], function (
+    Backbone
+) {
 
-		});
+    var DashboardModel = Backbone.Model.extend({
 
-		return DashboardModel;
+        url: '/static/data/Dashboard.json'
+
+    });
+
+    return DashboardModel;
 
 
 });

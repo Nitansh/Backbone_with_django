@@ -1,33 +1,36 @@
 define(
-	[
-		'backbone',
-		'libs/pubSub'
-	],
-	function
-	(
-		Backbone,
-		PubSub
-	){
+    [
+        'backbone',
+        'libs/pubSub',
+        'libs/underscore'
+    ],
+    function (
+        Backbone,
+        PubSub,
+        _
+    ) {
 
-	"use strict"; 
+        "use strict";
 
-	var BaseRouter = Backbone.Router.extend({
-		
-		initialize : function() {
-			_.bindAll(this,"routeChange");
-			PubSub.on('userAuthorized', this.routeChange);
-		},
+        var BaseRouter = Backbone.Router.extend({
 
-		routes : {
-			''		      : "init",
-			'ratingPlan'  : "userLoggedIn"
-		},
+            initialize: function () {
+                _.bindAll(this, "routeChange");
+                PubSub.on('userAuthorized', this.routeChange);
+            },
 
-		routeChange : function(){
-			this.navigate("ratingPlan", {trigger: true});
-		}
+            routes: {
+                '': "init",
+                'ratingPlan': "userLoggedIn"
+            },
 
-	});
+            routeChange: function () {
+                this.navigate("ratingPlan", {
+                    trigger: true
+                });
+            }
 
-	return BaseRouter;
-});
+        });
+
+        return BaseRouter;
+    });
