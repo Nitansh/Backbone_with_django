@@ -1,16 +1,19 @@
 define([
-    'backbone'
-], function (
-    Backbone
-) {
+		'backbone',
+		'jquery',
+		'underscore'],function(
+		Backbone,
+		$,
+		_
+		){
+	
+		CustomerModel = Backbone.Model.extend({
+ 
 
-    var CustomerModel = Backbone.Model.extend({
 
+		});
 
-
-    });
-
-    return CustomerModel;
+		return CustomerModel;
 
 
 });

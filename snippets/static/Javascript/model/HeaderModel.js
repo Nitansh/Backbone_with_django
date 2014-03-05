@@ -1,16 +1,19 @@
 define([
-    'backbone'
-], function (
-    Backbone
-) {
+		'backbone',
+		'jquery',
+		'underscore'],function(
+		Backbone,
+		$,
+		_
+		){
+	
+		HeaderModel = Backbone.Model.extend({
+ 		
+ 		url : '/header_api/?format=json'
 
-    var HeaderModel = Backbone.Model.extend({
+		});
 
-        url: '/header_api/?format=json'
-
-    });
-
-    return HeaderModel;
+		return HeaderModel;
 
 
 });

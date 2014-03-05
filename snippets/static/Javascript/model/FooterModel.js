@@ -1,16 +1,19 @@
 define([
-    'backbone'
-], function (
-    Backbone
-) {
+		'backbone',
+		'jquery',
+		'underscore'],function(
+		Backbone,
+		$,
+		_
+		){
+	
+		FooterModel = Backbone.Model.extend({
+ 		
+ 		url : '/Footer_api/?format=json'
 
-    var FooterModel = Backbone.Model.extend({
+		});
 
-        url: '/Footer_api/?format=json'
-
-    });
-
-    return FooterModel;
+		return FooterModel;
 
 
 });

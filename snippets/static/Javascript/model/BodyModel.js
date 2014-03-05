@@ -1,16 +1,19 @@
 define([
-    'backbone'
-], function (
-    Backbone
-) {
+		'backbone',
+		'jquery',
+		'underscore'],function(
+		Backbone,
+		$,
+		_
+		){
+	
+		BodyModel = Backbone.Model.extend({
+ 		
+ 		url : '/static/data/body.json'
 
-    var BodyModel = Backbone.Model.extend({
+		});
 
-        url: '/static/data/body.json'
-
-    });
-
-    return BodyModel;
+		return BodyModel;
 
 
 });
