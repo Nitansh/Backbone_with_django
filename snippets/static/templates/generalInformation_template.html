@@ -2,8 +2,12 @@
 .table-nonfluid {
    width: auto;
 }
-
-
+.accountInformation {
+	padding-top: 0px;
+}
+.customerInformation {
+	margin-bottom: 0px;
+}
 </style>
 
 
@@ -11,7 +15,7 @@
 <% _.each(data, function(data) { %>				
 <div class="row">
 	<div class="col-md-4">
-	<div class="jumbotron span3 myResponsive">
+	<div class="jumbotron span3 myResponsive customerInformation">
 	<div class="row">
 			<span><strong><p><%= polyglot.t(data.get('CustomerProfile').category1.name)  %></p></strong></span>
 		
@@ -34,7 +38,7 @@
 </div>
 
 
-<div class="jumbotron span3 myResponsive">
+<div class="jumbotron span3 myResponsive accountInformation">
 	<span><strong><p><%= polyglot.t(data.get('CustomerProfile').category2.name)  %></p></strong></span>
 
 
