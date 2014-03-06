@@ -24,10 +24,32 @@ define([
 					'click li#RTL':'RTL_conversion',
 					'click li#LTR' : 'LTR_conversion',
 					'click li#English':'EnglishLocale',
-					'click li#French' : 'FrenchLocale'
+					'click li#French' : 'FrenchLocale',
+					'click .dropDownCollapse' :  'collapseNavbar'
 				},
 
+				collapseNavbar : function (){
+	    			var mode = this.findBootstrapEnvironment();
+	       			if (mode == 'xs'){
+	            		$('.navbar-toggle').click();
+	        		}
+	    		},
+	    		findBootstrapEnvironment : function () {
+				    var envs = ['xs', 'sm', 'md', 'lg'];
 
+				    $el = $('<div>');
+				    $el.appendTo($('body'));
+
+				    for (var i = envs.length - 1; i >= 0; i--) {
+				        var env = envs[i];
+
+				        $el.addClass('hidden-'+env);
+				        if ($el.is(':hidden')) {
+				            $el.remove();
+				            return env
+				        }
+				 };
+				},
 				EnglishLocale: function () {
 				   var _this = this;
 				   $.getJSON('/static/locales/' + 'en' + '.json', function (data) {

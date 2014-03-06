@@ -21,7 +21,7 @@
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
                <ul class="dropdown-menu dropdown-manual">
                   <% _.each(data[0].DropDown_Buttons2 , function(data){ %>
-                  <li id = <%= (data.Button_Name) %> > <%= polyglot.t(data.Button_Name) %> </li>
+                  <li class="dropDownCollapse" id = <%= (data.Button_Name) %> > <%= polyglot.t(data.Button_Name) %> </li>
                   <% }); %>
                </ul>
             </li>
@@ -30,8 +30,8 @@
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Language Preferences<b class="caret"></b></a>
                <ul class="dropdown-menu dropdown-manual">
                   
-                  <li id="English">English</li>
-                  <li id="French">French</li>
+                  <li class="dropDownCollapse" id="English">English</li>
+                  <li class="dropDownCollapse" id="French">French</li>
                  
                </ul>
             </li>
